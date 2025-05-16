@@ -2,7 +2,7 @@
     --cell-size: 32px;
     --primary-color: #3498db;
     --secondary-color: #2c3e50;
-    --cell-gap: 2px;
+    --cell-gap: 1px;
 }
 
 /* General Styles */
@@ -65,10 +65,13 @@ footer {
 .game-container {
     display: flex;
     justify-content: center;
-    max-width: 1200px;
+    max-width: 1400px;
+    width: 100%;
     margin: 0 auto;
     padding: 20px;
-    gap: 30px;
+    gap: 40px;
+    align-items: flex-start;
+    flex-wrap: wrap;
 }
 
 .game-info {
@@ -86,6 +89,10 @@ footer {
     display: flex;
     justify-content: space-around;
     margin-bottom: 10px;
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .stat {
@@ -98,13 +105,22 @@ footer {
 .stat i {
     font-size: 1.5rem;
     color: #3498db;
-    margin-bottom: 0.3rem;
+    margin-bottom: 0.5rem;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 #mines-left, #timer {
     font-size: 1.8rem;
     font-weight: bold;
     color: white;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .stat-label {
@@ -119,48 +135,90 @@ footer {
     display: flex;
     flex-direction: column;
     gap: 15px;
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .controls h3 {
     margin-bottom: 10px;
+    font-size: 1.1rem;
+    color: #3498db;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 #difficulty {
     width: 100%;
-    padding: 8px;
+    padding: 10px 15px;
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 5px;
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.4);
     font-size: 0.95rem;
     color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml;utf8,<svg fill='white' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 20px;
 }
 
 #difficulty:focus {
     outline: none;
     border-color: #3498db;
+    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.25);
+}
+
+#difficulty option {
+    background-color: #2d2d2d;
+    color: white;
+    padding: 10px;
 }
 
 #new-game-btn {
     background-color: #3498db;
     color: white;
     border: none;
-    padding: 10px 20px;
+    padding: 12px 20px;
     border-radius: 5px;
     cursor: pointer;
     font-size: 1rem;
-    transition: background-color 0.3s ease;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
 }
 
 #new-game-btn:hover {
     background-color: #2980b9;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+#new-game-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .instructions {
     margin-top: 10px;
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .instructions h3 {
     margin-bottom: 10px;
+    font-size: 1.1rem;
+    color: #3498db;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 .instructions ul {
@@ -169,14 +227,31 @@ footer {
 }
 
 .instructions li {
-    margin-bottom: 8px;
+    margin-bottom: 12px;
     display: flex;
     align-items: center;
+    padding: 8px 10px;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+.instructions li:hover {
+    background-color: rgba(0, 0, 0, 0.4);
+    transform: translateX(3px);
 }
 
 .instructions li i {
-    margin-right: 10px;
-    width: 20px;
+    margin-right: 12px;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    color: white;
+    background-color: #3498db;
+    border-radius: 50%;
     text-align: center;
 }
 
@@ -186,27 +261,39 @@ footer {
     gap: var(--cell-gap);
     background-color: #111;
     border-radius: 5px;
-    overflow: hidden;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    overflow: visible;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
     margin: 0 auto;
-    border: 4px solid #444;
+    border: 3px solid #444;
     box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    min-width: 320px;
+    min-height: 320px;
+    width: max-content;
+    height: max-content;
 }
 
 .cell {
     width: var(--cell-size);
     height: var(--cell-size);
     background: linear-gradient(145deg, #444, #333);
-    border-radius: 2px;
+    border-radius: 3px;
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: 700;
-    font-size: calc(var(--cell-size) * 0.5);
+    font-size: calc(var(--cell-size) * 0.45);
     user-select: none;
     cursor: pointer;
     transition: all 0.1s ease;
     margin: 0;
+    padding: 0;
+    line-height: 1;
+    box-sizing: border-box;
+    position: relative;
+    text-align: center;
 }
 
 .cell:hover {
@@ -228,12 +315,22 @@ footer {
 
 .cell.flagged::after {
     content: "🚩";
-    font-size: calc(var(--cell-size) * 0.5);
+    font-size: calc(var(--cell-size) * 0.45);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    line-height: 1;
 }
 
 .cell.mine::after {
     content: "💣";
-    font-size: calc(var(--cell-size) * 0.5);
+    font-size: calc(var(--cell-size) * 0.45);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    line-height: 1;
 }
 
 /* Number colors */
@@ -323,20 +420,53 @@ footer {
         flex-direction: column;
         align-items: center;
         gap: 30px;
+        max-width: 850px;
     }
     
     .game-info {
         width: 100%;
-        max-width: 800px;
+        max-width: 600px;
         margin-bottom: 0;
     }
     
+    #game-board {
+        margin: 0 auto;
+        width: auto;
+        height: auto;
+    }
+    
     :root {
-        --cell-size: 24px;
+        --cell-size: 32px; /* Maintain larger cell size even on mobile */
+    }
+}
+
+/* For tablets and smaller screens */
+@media (max-width: 768px) {
+    #game-board {
+        width: auto;
+        height: auto;
+        margin: 0 auto;
+    }
+    
+    :root {
+        --cell-size: 30px;
+    }
+}
+
+/* For very small screens, ensure the board fits */
+@media (max-width: 576px) {
+    #game-board {
+        width: auto;
+        height: auto;
+        margin: 0 auto;
+    }
+    
+    :root {
+        --cell-size: 26px; /* Reduce size on very small screens */
     }
     
     .cell.flagged::after,
     .cell.mine::after {
-        font-size: calc(var(--cell-size) * 0.6);
+        font-size: calc(var(--cell-size) * 0.45);
     }
 } 

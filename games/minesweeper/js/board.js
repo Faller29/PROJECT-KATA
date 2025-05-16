@@ -29,23 +29,41 @@ class Board {
         // Clear any existing board
         this.boardElement.innerHTML = '';
         
-        // Calculate cell size based on difficulty level
+        // Get available container width
+        const containerWidth = window.innerWidth > 992 ? 800 : window.innerWidth - 40;
+        const containerHeight = window.innerHeight - 200; // Leave space for header and other elements
+        
+        // Calculate cell size based on difficulty level and container size
         let cellSize;
         let boardPadding;
         
+        // Base minimum sizes for different difficulties
+        let minCellSize;
         if (this.cols <= 9) { // Beginner
-            cellSize = 32; // Larger cells for beginner level
-            boardPadding = 10;
+            minCellSize = 36; // Minimum cell size for beginner
+            boardPadding = 12;
         } else if (this.cols <= 16) { // Intermediate
-            cellSize = 26; // Medium cells for intermediate
+            minCellSize = 32; // Minimum cell size for intermediate
             boardPadding = 12;
         } else { // Expert
-            cellSize = 20; // Smaller cells for expert level
+            minCellSize = 26; // Minimum cell size for expert
             boardPadding = 15;
         }
         
-        // Set up the grid columns and appropriate size
+        // Calculate cell size that would fit the available space
+        const cellGap = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--cell-gap').trim() || '1px');
+        
+        // Calculate cell size based on available container width and height
+        const widthBasedCellSize = Math.floor((containerWidth - (boardPadding * 2)) / this.cols);
+        const heightBasedCellSize = Math.floor((containerHeight - (boardPadding * 2)) / this.rows);
+        
+        // Calculate cell size that would fit container while respecting minimum size
+        cellSize = Math.max(Math.min(widthBasedCellSize, heightBasedCellSize), minCellSize);
+        
+        // Set up the grid layout
         this.boardElement.style.gridTemplateColumns = `repeat(${this.cols}, ${cellSize}px)`;
+        this.boardElement.style.gridTemplateRows = `repeat(${this.rows}, ${cellSize}px)`;
+        this.boardElement.style.gap = `${cellGap}px`;
         
         // Update cell size in CSS variables for the game board
         document.documentElement.style.setProperty('--cell-size', `${cellSize}px`);
@@ -66,18 +84,27 @@ class Board {
                 const cellElement = cell.createElement();
                 cellElement.style.width = `${cellSize}px`;
                 cellElement.style.height = `${cellSize}px`;
-                cellElement.style.fontSize = `${cellSize * 0.5}px`;
+                cellElement.style.fontSize = `${cellSize * 0.45}px`;
                 this.boardElement.appendChild(cellElement);
             }
         }
         
-        // Adjust board container width to fit cells exactly with additional padding
-        const cellGap = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--cell-gap').trim() || '2px');
-        // Calculate exact width needed plus extra padding
-        const boardWidth = (this.cols * cellSize) + ((this.cols - 1) * cellGap) + (boardPadding * 2);
-        this.boardElement.style.width = `${boardWidth}px`;
-        this.boardElement.style.maxWidth = '100%';
+        // Calculate exact board dimensions based on cell content
+        const totalCellWidth = this.cols * cellSize;
+        const totalCellHeight = this.rows * cellSize;
+        const totalGapWidth = (this.cols - 1) * cellGap;
+        const totalGapHeight = (this.rows - 1) * cellGap;
+        
+        // Calculate total board size including padding
+        const totalWidth = totalCellWidth + totalGapWidth + (boardPadding * 2);
+        const totalHeight = totalCellHeight + totalGapHeight + (boardPadding * 2);
+        
+        // Let the grid expand naturally to fit all cells
         this.boardElement.style.padding = `${boardPadding}px`;
+        this.boardElement.style.boxSizing = 'border-box';
+        
+        // Force redraw to make sure all cells are positioned correctly
+        this.boardElement.style.display = 'grid';
     }
 
     /**

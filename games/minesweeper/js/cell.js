@@ -33,6 +33,9 @@ class Cell {
         // Set explicit size, which helps with various browsers and responsive displays
         cell.style.width = cellSize;
         cell.style.height = cellSize;
+        cell.style.padding = '0';
+        cell.style.margin = '0';
+        cell.style.boxSizing = 'border-box';
         
         this.element = cell;
         return cell;

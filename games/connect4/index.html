@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connect Four - Project Kata</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <h1>Connect Four</h1>
+        <a href="../../index.html" class="back-button"><i class="fas fa-arrow-left"></i> Back to Games</a>
+    </header>
+
+    <div class="game-container">
+        <div class="game-info">
+            <div class="score-container">
+                <h2>Current Turn: <span id="current-player">Player 1</span></h2>
+                <div class="player-info">
+                    <div class="player player1">
+                        <div class="player-color"></div>
+                        <span>Player 1</span>
+                    </div>
+                    <div class="player player2">
+                        <div class="player-color"></div>
+                        <span>Player 2</span>
+                    </div>
+                </div>
+            </div>
+            <div class="controls">
+                <h3>Game Controls</h3>
+                <ul>
+                    <li><i class="fas fa-mouse-pointer"></i> Click on a column to drop disc</li>
+                </ul>
+                <button id="new-game-btn">New Game</button>
+            </div>
+            <div class="instructions">
+                <h3>How to Play</h3>
+                <p>Take turns dropping discs into the grid. The first player to connect four discs in a row (horizontally, vertically, or diagonally) wins.</p>
+            </div>
+        </div>
+        <div id="board-container">
+            <div id="board"></div>
+        </div>
+    </div>
+
+    <div id="game-over" class="modal">
+        <div class="modal-content">
+            <h2 id="result-message">Game Over!</h2>
+            <p id="winner-message">Player X wins!</p>
+            <button id="play-again-btn"><i class="fas fa-redo"></i> Play Again</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Project Kata - Created for Portfolio</p>
+    </footer>
+
+    <script src="../../js/game-settings.js"></script>
+    <script src="connect4.js"></script>
+</body>
+</html> 
