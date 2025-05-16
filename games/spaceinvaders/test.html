@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ES Modules Test</title>
+</head>
+<body>
+    <h1>Testing ES Modules</h1>
+    <div id="result"></div>
+
+    <script type="module">
+        console.log("Module script running");
+        
+        // Import constants to test module loading
+        import * as Constants from './constants.js';
+        
+        document.getElementById('result').innerHTML = 
+            `Module loaded successfully.<br>
+            PLAYER_WIDTH: ${Constants.PLAYER_WIDTH}<br>
+            PLAYER_HEIGHT: ${Constants.PLAYER_HEIGHT}`;
+            
+        console.log("Constants loaded:", Constants);
+    </script>
+</body>
+</html> 

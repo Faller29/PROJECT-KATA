@@ -33,6 +33,62 @@ function loadGameSettings() {
                 chess: {
                     // Chess uses mouse primarily, but could have keyboard shortcuts
                     undo: 'z'
+                },
+                pong: {
+                    moveUp: 'ArrowUp',
+                    moveDown: 'ArrowDown',
+                    pause: 'p'
+                },
+                breakout: {
+                    moveLeft: 'ArrowLeft',
+                    moveRight: 'ArrowRight',
+                    launch: ' ', // Space
+                    pause: 'p'
+                },
+                spaceinvaders: {
+                    moveLeft: 'ArrowLeft',
+                    moveRight: 'ArrowRight',
+                    fire: ' ', // Space
+                    pause: 'p'
+                },
+                minesweeper: {
+                    flag: 'f',
+                    newGame: 'n'
+                },
+                connect4: {
+                    moveLeft: 'ArrowLeft',
+                    moveRight: 'ArrowRight',
+                    drop: ' ', // Space
+                    newGame: 'n'
+                },
+                '2048': {
+                    moveLeft: 'ArrowLeft',
+                    moveRight: 'ArrowRight',
+                    moveDown: 'ArrowDown',
+                    moveUp: 'ArrowUp',
+                    newGame: 'n'
+                },
+                flappybird: {
+                    flap: ' ', // Space
+                    pause: 'p'
+                },
+                tictactoe: {
+                    select: ' ', // Space
+                    restart: 'r'
+                },
+                memory: {
+                    select: ' ', // Space
+                    restart: 'r'
+                },
+                hangman: {
+                    restart: 'r'
+                },
+                asteroids: {
+                    moveLeft: 'ArrowLeft',
+                    moveRight: 'ArrowRight',
+                    thrust: 'ArrowUp',
+                    fire: ' ', // Space
+                    pause: 'p'
                 }
             }
         };

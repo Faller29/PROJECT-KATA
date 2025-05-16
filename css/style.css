@@ -8,7 +8,8 @@
 /* Full-screen styles */
 html, body {
     height: 100%;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 body {
@@ -118,6 +119,50 @@ header h2 {
 
 #chess-card .game-icon {
     color: #9b59b6;
+}
+
+#pong-card .game-icon {
+    color: #3498db;
+}
+
+#breakout-card .game-icon {
+    color: #e67e22;
+}
+
+#spaceinvaders-card .game-icon {
+    color: #16a085;
+}
+
+#minesweeper-card .game-icon {
+    color: #c0392b;
+}
+
+#connect4-card .game-icon {
+    color: #8e44ad;
+}
+
+#2048-card .game-icon {
+    color: #d35400;
+}
+
+#flappybird-card .game-icon {
+    color: #27ae60;
+}
+
+#tictactoe-card .game-icon {
+    color: #2c3e50;
+}
+
+#memory-card .game-icon {
+    color: #f39c12;
+}
+
+#hangman-card .game-icon {
+    color: #7f8c8d;
+}
+
+#asteroids-card .game-icon {
+    color: #1abc9c;
 }
 
 .game-card h3 {

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minesweeper - Project Kata</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <h1>Minesweeper</h1>
+        <a href="../../index.html" class="back-button"><i class="fas fa-arrow-left"></i> Back to Games</a>
+    </header>
+
+    <div class="game-container">
+        <div class="game-info">
+            <div class="stats-container">
+                <div class="stat">
+                    <i class="fas fa-bomb"></i>
+                    <span id="mines-left">10</span>
+                    <span class="stat-label">Mines</span>
+                </div>
+                <div class="stat">
+                    <i class="fas fa-clock"></i>
+                    <span id="timer">0</span>
+                    <span class="stat-label">Time</span>
+                </div>
+            </div>
+            
+            <div class="controls">
+                <h3>Difficulty</h3>
+                <select id="difficulty">
+                    <option value="beginner">Beginner (9x9, 10 mines)</option>
+                    <option value="intermediate">Intermediate (16x16, 40 mines)</option>
+                    <option value="expert">Expert (30x16, 99 mines)</option>
+                </select>
+                <button id="new-game-btn"><i class="fas fa-play-circle"></i> New Game</button>
+            </div>
+            
+            <div class="instructions">
+                <h3>How to Play</h3>
+                <ul>
+                    <li><i class="fas fa-mouse-pointer"></i> Left Click to reveal a cell</li>
+                    <li><i class="fas fa-flag"></i> Right Click to flag a potential mine</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div id="game-board"></div>
+    </div>
+
+    <div id="game-over" class="modal">
+        <div class="modal-content">
+            <h2 id="result-message">Game Over!</h2>
+            <p>You completed the game in <span id="final-time">0</span> seconds</p>
+            <button id="play-again-btn"><i class="fas fa-redo"></i> Play Again</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Project Kata - Created for Portfolio</p>
+    </footer>
+
+    <script src="../../js/game-settings.js"></script>
+    <script src="js/constants.js"></script>
+    <script src="js/cell.js"></script>
+    <script src="js/board.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/game.js"></script>
+</body>
+</html> 

@@ -1,0 +1,147 @@
+// Space Invaders - Main Game File
+console.log("Main module starting to load");
+import Renderer from './renderer.js';
+import Physics from './physics.js';
+import GameController from './gameController.js';
+console.log("All modules imported successfully");
+
+// Set a global flag to indicate the modules have loaded
+window.gameModulesLoaded = true;
+
+document.addEventListener('DOMContentLoaded', () => {
+    console.log("DOM Content Loaded event fired");
+    try {
+        // Get the canvas and context
+        const canvas = document.getElementById('invaders-board');
+        console.log("Canvas element found:", canvas);
+        const ctx = canvas.getContext('2d');
+
+        // Get DOM elements
+        const scoreDisplay = document.getElementById('score');
+        const highScoreDisplay = document.getElementById('high-score');
+        const livesDisplay = document.getElementById('lives');
+        const levelDisplay = document.getElementById('level');
+        const startButton = document.getElementById('start-button');
+        const gameOverModal = document.getElementById('game-over');
+        const finalScoreDisplay = document.getElementById('final-score');
+        const playAgainButton = document.getElementById('play-again');
+        const levelCompleteModal = document.getElementById('level-complete');
+        const nextLevelButton = document.getElementById('next-level');
+        const nextLevelNumDisplay = document.getElementById('next-level-num');
+        const pauseScreen = document.getElementById('pause-screen');
+        const resumeButton = document.getElementById('resume');
+        console.log("All DOM elements found");
+
+        // Initialize game components
+        console.log("Creating Physics, Renderer, and GameController instances");
+        const physics = new Physics(canvas.width, canvas.height);
+        const renderer = new Renderer(canvas, ctx);
+        const gameController = new GameController(physics, renderer, canvas);
+        console.log("Game components initialized");
+
+        // Initialize high score display
+        highScoreDisplay.textContent = gameController.highScore;
+
+        // Update UI from game state
+        function updateUI(gameState) {
+            console.log("Updating UI with game state:", gameState);
+            if (gameState) {
+                if ('score' in gameState) scoreDisplay.textContent = gameState.score;
+                if ('highScore' in gameState) highScoreDisplay.textContent = gameState.highScore;
+                if ('lives' in gameState) livesDisplay.textContent = gameState.lives;
+                if ('level' in gameState) levelDisplay.textContent = gameState.level;
+
+                // Handle game over
+                if (gameState.gameRunning === false && 'score' in gameState) {
+                    finalScoreDisplay.textContent = gameState.score;
+                    gameOverModal.style.display = 'flex';
+                }
+
+                // Handle level complete
+                if (gameState.gameRunning === false && 'level' in gameState) {
+                    nextLevelNumDisplay.textContent = gameState.level;
+                    levelCompleteModal.style.display = 'flex';
+                }
+            }
+        }
+
+        // Handle pause toggle
+        function handlePauseToggle(isPaused) {
+            if (isPaused) {
+                pauseScreen.style.display = 'flex';
+            } else {
+                pauseScreen.style.display = 'none';
+            }
+        }
+
+        // Start the game
+        startButton.addEventListener('click', () => {
+            console.log("Start button clicked");
+            const gameState = gameController.startGame();
+            console.log("Game started, received game state:", gameState);
+            updateUI(gameState);
+            startButton.disabled = true;
+        });
+
+        // Play again button
+        playAgainButton.addEventListener('click', () => {
+            gameOverModal.style.display = 'none';
+            startButton.disabled = false;
+            // Reset the game
+            const gameState = gameController.init();
+            updateUI(gameState);
+        });
+
+        // Next level button
+        nextLevelButton.addEventListener('click', () => {
+            levelCompleteModal.style.display = 'none';
+            gameController.startNextLevel();
+        });
+
+        // Resume button
+        resumeButton.addEventListener('click', () => {
+            const isPaused = gameController.togglePause();
+            handlePauseToggle(isPaused);
+        });
+
+        // Handle keyboard input
+        document.addEventListener('keydown', (e) => {
+            gameController.setKeyState(e.key, true);
+        });
+
+        document.addEventListener('keyup', (e) => {
+            gameController.setKeyState(e.key, false);
+        });
+
+        // Handle custom key bindings from game-settings.js
+        if (window.addEventListener) {
+            window.addEventListener('message', function(event) {
+                if (event.data && event.data.type === 'gameSettingsUpdate') {
+                    if (event.data.settings && event.data.settings.spaceinvaders) {
+                        gameController.updateKeyBindings(event.data.settings.spaceinvaders);
+                    }
+                }
+            });
+        }
+
+        console.log("Setting up initial display");
+        // Initial setup - just show empty game without running update logic
+        ctx.fillStyle = "#000000";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        
+        // Draw starfield for visual effect
+        renderer.drawStarfield();
+        
+        // Create temporary player for display
+        const tempPlayer = physics.createPlayer();
+        renderer.drawPlayer(tempPlayer);
+        
+        // Create temporary aliens for display
+        const tempAliens = physics.createAliens();
+        renderer.drawAliens(tempAliens);
+        
+        console.log("Initial display complete");
+    } catch (error) {
+        console.error("Error in main game initialization:", error);
+    }
+}); 

@@ -43,6 +43,83 @@
                 <p>Classic strategy board game for two players</p>
                 <a href="games/chess/index.html" class="play-button">Play Now</a>
             </div>
+
+            <div class="game-card" id="pong-card">
+                <div class="game-icon"><i class="fas fa-table-tennis"></i></div>
+                <h3>Pong</h3>
+                <p>Classic arcade game where you bounce a ball with paddles</p>
+                <a href="games/pong/index.html" class="play-button">Play Now</a>
+            </div>
+
+            <div class="game-card" id="breakout-card">
+                <div class="game-icon"><i class="fas fa-cube"></i></div>
+                <h3>Breakout</h3>
+                <p>Break all the blocks with a bouncing ball</p>
+                <a href="games/breakout/index.html" class="play-button">Play Now</a>
+            </div>
+
+            <div class="game-card" id="spaceinvaders-card">
+                <div class="game-icon"><i class="fas fa-rocket"></i></div>
+                <h3>Space Invaders</h3>
+                <p>Defend against waves of alien invaders</p>
+                <a href="games/spaceinvaders/index.html" class="play-button">Play Now</a>
+            </div>
+
+            <div class="game-card" id="minesweeper-card">
+                <div class="game-icon"><i class="fas fa-bomb"></i></div>
+                <h3>Minesweeper</h3>
+                <p>Clear a minefield without setting off any mines</p>
+                <a href="games/minesweeper/index.html" class="play-button">Play Now</a>
+            </div>
+
+            <div class="game-card" id="connect4-card">
+                <div class="game-icon"><i class="fas fa-circle"></i></div>
+                <h3>Connect Four</h3>
+                <p>Drop discs to connect four of your color in a row</p>
+                <a href="games/connect4/index.html" class="play-button">Play Now</a>
+            </div>
+
+            <div class="game-card" id="2048-card">
+                <div class="game-icon"><i class="fas fa-calculator"></i></div>
+                <h3>2048</h3>
+                <p>Combine tiles to reach the 2048 tile</p>
+                <a href="games/2048/index.html" class="play-button">Play Now</a>
+            </div>
+
+            <div class="game-card" id="flappybird-card">
+                <div class="game-icon"><i class="fas fa-dove"></i></div>
+                <h3>Flappy Bird</h3>
+                <p>Navigate a bird through obstacles</p>
+                <a href="games/flappybird/index.html" class="play-button">Play Now</a>
+            </div>
+
+            <div class="game-card" id="tictactoe-card">
+                <div class="game-icon"><i class="fas fa-hashtag"></i></div>
+                <h3>Tic-Tac-Toe</h3>
+                <p>Classic X and O grid game</p>
+                <a href="games/tictactoe/index.html" class="play-button">Play Now</a>
+            </div>
+
+            <div class="game-card" id="memory-card">
+                <div class="game-icon"><i class="fas fa-clone"></i></div>
+                <h3>Memory</h3>
+                <p>Find matching pairs of cards</p>
+                <a href="games/memory/index.html" class="play-button">Play Now</a>
+            </div>
+
+            <div class="game-card" id="hangman-card">
+                <div class="game-icon"><i class="fas fa-font"></i></div>
+                <h3>Hangman</h3>
+                <p>Guess the word before the hangman is complete</p>
+                <a href="games/hangman/index.html" class="play-button">Play Now</a>
+            </div>
+
+            <div class="game-card" id="asteroids-card">
+                <div class="game-icon"><i class="fas fa-meteor"></i></div>
+                <h3>Asteroids</h3>
+                <p>Control a spaceship and destroy asteroids</p>
+                <a href="games/asteroids/index.html" class="play-button">Play Now</a>
+            </div>
         </div>
     </main>
 
@@ -68,6 +145,12 @@
                     <button class="tab-button active" data-game="tetris">Tetris</button>
                     <button class="tab-button" data-game="snake">Snake</button>
                     <button class="tab-button" data-game="pacman">Pac-Man</button>
+                    <button class="tab-button" data-game="pong">Pong</button>
+                    <button class="tab-button" data-game="breakout">Breakout</button>
+                    <button class="tab-button" data-game="spaceinvaders">Space Invaders</button>
+                    <button class="tab-button" data-game="minesweeper">Minesweeper</button>
+                    <button class="tab-button" data-game="2048">2048</button>
+                    <button class="tab-button" data-game="flappybird">Flappy Bird</button>
                 </div>
                 
                 <div id="tetris-bindings" class="key-bindings-container active">
@@ -136,6 +219,104 @@
                     <div class="key-binding">
                         <label>Pause:</label>
                         <button class="key-bind-button" data-game="pacman" data-action="pause">P</button>
+                    </div>
+                </div>
+                
+                <div id="pong-bindings" class="key-bindings-container">
+                    <div class="key-binding">
+                        <label>Move Up:</label>
+                        <button class="key-bind-button" data-game="pong" data-action="moveUp">↑</button>
+                    </div>
+                    <div class="key-binding">
+                        <label>Move Down:</label>
+                        <button class="key-bind-button" data-game="pong" data-action="moveDown">↓</button>
+                    </div>
+                    <div class="key-binding">
+                        <label>Pause:</label>
+                        <button class="key-bind-button" data-game="pong" data-action="pause">P</button>
+                    </div>
+                </div>
+                
+                <div id="breakout-bindings" class="key-bindings-container">
+                    <div class="key-binding">
+                        <label>Move Left:</label>
+                        <button class="key-bind-button" data-game="breakout" data-action="moveLeft">←</button>
+                    </div>
+                    <div class="key-binding">
+                        <label>Move Right:</label>
+                        <button class="key-bind-button" data-game="breakout" data-action="moveRight">→</button>
+                    </div>
+                    <div class="key-binding">
+                        <label>Launch Ball:</label>
+                        <button class="key-bind-button" data-game="breakout" data-action="launch">Space</button>
+                    </div>
+                    <div class="key-binding">
+                        <label>Pause:</label>
+                        <button class="key-bind-button" data-game="breakout" data-action="pause">P</button>
+                    </div>
+                </div>
+                
+                <div id="spaceinvaders-bindings" class="key-bindings-container">
+                    <div class="key-binding">
+                        <label>Move Left:</label>
+                        <button class="key-bind-button" data-game="spaceinvaders" data-action="moveLeft">←</button>
+                    </div>
+                    <div class="key-binding">
+                        <label>Move Right:</label>
+                        <button class="key-bind-button" data-game="spaceinvaders" data-action="moveRight">→</button>
+                    </div>
+                    <div class="key-binding">
+                        <label>Fire:</label>
+                        <button class="key-bind-button" data-game="spaceinvaders" data-action="fire">Space</button>
+                    </div>
+                    <div class="key-binding">
+                        <label>Pause:</label>
+                        <button class="key-bind-button" data-game="spaceinvaders" data-action="pause">P</button>
+                    </div>
+                </div>
+                
+                <div id="minesweeper-bindings" class="key-bindings-container">
+                    <div class="key-binding">
+                        <label>Flag Cell:</label>
+                        <button class="key-bind-button" data-game="minesweeper" data-action="flag">F</button>
+                    </div>
+                    <div class="key-binding">
+                        <label>New Game:</label>
+                        <button class="key-bind-button" data-game="minesweeper" data-action="newGame">N</button>
+                    </div>
+                </div>
+                
+                <div id="2048-bindings" class="key-bindings-container">
+                    <div class="key-binding">
+                        <label>Move Left:</label>
+                        <button class="key-bind-button" data-game="2048" data-action="moveLeft">←</button>
+                    </div>
+                    <div class="key-binding">
+                        <label>Move Right:</label>
+                        <button class="key-bind-button" data-game="2048" data-action="moveRight">→</button>
+                    </div>
+                    <div class="key-binding">
+                        <label>Move Down:</label>
+                        <button class="key-bind-button" data-game="2048" data-action="moveDown">↓</button>
+                    </div>
+                    <div class="key-binding">
+                        <label>Move Up:</label>
+                        <button class="key-bind-button" data-game="2048" data-action="moveUp">↑</button>
+                    </div>
+                    <div class="key-binding">
+                        <label>New Game:</label>
+                        <button class="key-bind-button" data-game="2048" data-action="newGame">N</button>
+                    </div>
+                </div>
+                
+                <div id="flappybird-bindings" class="key-bindings-container">
+                    <div class="key-binding">
+                        <label>Flap:</label>
+                        <button class="key-bind-button" data-game="flappybird" data-action="flap">Space</button>
+                    </div>
+                    <div class="key-binding">
+                        <label>Pause:</label>
+                        <button class="key-bind-button" data-game="flappybird" data-action="pause">P</button>
                     </div>
                 </div>
             </div>
