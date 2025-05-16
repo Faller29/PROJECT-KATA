@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Kata - Classic Games Collection</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <h1>Project Kata</h1>
+        <h2>Classic Games Collection</h2>
+        <button id="settings-button" class="settings-button"><i class="fas fa-cog"></i> Settings</button>
+    </header>
+
+    <main>
+        <div class="game-grid">
+            <div class="game-card" id="tetris-card">
+                <div class="game-icon"><i class="fas fa-th-large"></i></div>
+                <h3>Tetris</h3>
+                <p>Arrange falling blocks to create complete lines</p>
+                <a href="games/tetris/index.html" class="play-button">Play Now</a>
+            </div>
+
+            <div class="game-card" id="snake-card">
+                <div class="game-icon"><i class="fas fa-snake"></i></div>
+                <h3>Snake</h3>
+                <p>Control a snake to eat food and grow without hitting walls or yourself</p>
+                <a href="games/snake/index.html" class="play-button">Play Now</a>
+            </div>
+
+            <div class="game-card" id="pacman-card">
+                <div class="game-icon"><i class="fas fa-ghost"></i></div>
+                <h3>Pac-Man</h3>
+                <p>Navigate a maze eating dots while avoiding ghosts</p>
+                <a href="games/pacman/index.html" class="play-button">Play Now</a>
+            </div>
+
+            <div class="game-card" id="chess-card">
+                <div class="game-icon"><i class="fas fa-chess"></i></div>
+                <h3>Chess</h3>
+                <p>Classic strategy board game for two players</p>
+                <a href="games/chess/index.html" class="play-button">Play Now</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Project Kata - Created for Portfolio</p>
+        <div class="social-links">
+            <a href="https://github.com/faller29" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://linkedin.com/in/faller29" target="_blank"><i class="fab fa-linkedin"></i></a>
+        </div>
+    </footer>
+
+    <!-- Settings Modal -->
+    <div id="settings-modal" class="modal">
+        <div class="modal-content settings-modal-content">
+            <span class="close-button">&times;</span>
+            <h2>Game Settings</h2>
+            
+            <!-- Scaling settings removed as requested -->
+            
+            <div class="settings-section">
+                <h3>Key Bindings</h3>
+                <div class="game-tabs">
+                    <button class="tab-button active" data-game="tetris">Tetris</button>
+                    <button class="tab-button" data-game="snake">Snake</button>
+                    <button class="tab-button" data-game="pacman">Pac-Man</button>
+                </div>
+                
+                <div id="tetris-bindings" class="key-bindings-container active">
+                    <div class="key-binding">
+                        <label>Move Left:</label>
+                        <button class="key-bind-button" data-game="tetris" data-action="moveLeft">←</button>
+                    </div>
+                    <div class="key-binding">
+                        <label>Move Right:</label>
+                        <button class="key-bind-button" data-game="tetris" data-action="moveRight">→</button>
+                    </div>
+                    <div class="key-binding">
+                        <label>Move Down:</label>
+                        <button class="key-bind-button" data-game="tetris" data-action="moveDown">↓</button>
+                    </div>
+                    <div class="key-binding">
+                        <label>Rotate:</label>
+                        <button class="key-bind-button" data-game="tetris" data-action="rotate">↑</button>
+                    </div>
+                    <div class="key-binding">
+                        <label>Hard Drop:</label>
+                        <button class="key-bind-button" data-game="tetris" data-action="hardDrop">Space</button>
+                    </div>
+                </div>
+                
+                <div id="snake-bindings" class="key-bindings-container">
+                    <div class="key-binding">
+                        <label>Move Left:</label>
+                        <button class="key-bind-button" data-game="snake" data-action="moveLeft">←</button>
+                    </div>
+                    <div class="key-binding">
+                        <label>Move Right:</label>
+                        <button class="key-bind-button" data-game="snake" data-action="moveRight">→</button>
+                    </div>
+                    <div class="key-binding">
+                        <label>Move Down:</label>
+                        <button class="key-bind-button" data-game="snake" data-action="moveDown">↓</button>
+                    </div>
+                    <div class="key-binding">
+                        <label>Move Up:</label>
+                        <button class="key-bind-button" data-game="snake" data-action="moveUp">↑</button>
+                    </div>
+                    <div class="key-binding">
+                        <label>Pause:</label>
+                        <button class="key-bind-button" data-game="snake" data-action="pause">P</button>
+                    </div>
+                </div>
+                
+                <div id="pacman-bindings" class="key-bindings-container">
+                    <div class="key-binding">
+                        <label>Move Left:</label>
+                        <button class="key-bind-button" data-game="pacman" data-action="moveLeft">←</button>
+                    </div>
+                    <div class="key-binding">
+                        <label>Move Right:</label>
+                        <button class="key-bind-button" data-game="pacman" data-action="moveRight">→</button>
+                    </div>
+                    <div class="key-binding">
+                        <label>Move Down:</label>
+                        <button class="key-bind-button" data-game="pacman" data-action="moveDown">↓</button>
+                    </div>
+                    <div class="key-binding">
+                        <label>Move Up:</label>
+                        <button class="key-bind-button" data-game="pacman" data-action="moveUp">↑</button>
+                    </div>
+                    <div class="key-binding">
+                        <label>Pause:</label>
+                        <button class="key-bind-button" data-game="pacman" data-action="pause">P</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="settings-buttons">
+                <button id="save-settings">Save Settings</button>
+                <button id="reset-settings">Reset to Default</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Key Binding Modal -->
+    <div id="key-binding-modal" class="modal">
+        <div class="modal-content key-binding-modal-content">
+            <h3>Press any key</h3>
+            <p>Press the key you want to use for this action</p>
+            <button id="cancel-key-binding">Cancel</button>
+        </div>
+    </div>
+
+    <script src="js/game-settings.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pac-Man - Project Kata</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <h1>Pac-Man</h1>
+        <a href="../../index.html" class="back-button"><i class="fas fa-arrow-left"></i> Back to Games</a>
+    </header>
+
+    <div class="game-container">
+        <div class="game-info">
+            <div class="score-container">
+                <h2>Score: <span id="score">0</span></h2>
+                <h3>High Score: <span id="high-score">0</span></h3>
+                <h3>Lives: <span id="lives">3</span></h3>
+            </div>
+            <div class="controls">
+                <h3>Controls:</h3>
+                <ul>
+                    <li><i class="fas fa-arrow-left"></i> Move Left</li>
+                    <li><i class="fas fa-arrow-right"></i> Move Right</li>
+                    <li><i class="fas fa-arrow-down"></i> Move Down</li>
+                    <li><i class="fas fa-arrow-up"></i> Move Up</li>
+                    <li><i class="fas fa-pause"></i> P: Pause</li>
+                </ul>
+            </div>
+            <button id="start-button">Start Game</button>
+        </div>
+        <canvas id="pacman-board" width="448" height="496"></canvas>
+    </div>
+
+    <div id="game-over" class="modal">
+        <div class="modal-content">
+            <h2>Game Over!</h2>
+            <p>Your score: <span id="final-score">0</span></p>
+            <button id="play-again">Play Again</button>
+        </div>
+    </div>
+
+    <div id="level-complete" class="modal">
+        <div class="modal-content">
+            <h2>Level Complete!</h2>
+            <p>Get ready for the next level</p>
+            <button id="next-level">Continue</button>
+        </div>
+    </div>
+
+    <div id="pause-screen" class="modal">
+        <div class="modal-content">
+            <h2>Game Paused</h2>
+            <button id="resume">Resume</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Project Kata - Created for Portfolio</p>
+    </footer>
+
+    <script src="../../js/game-settings.js"></script>
+    <script src="pacman.js"></script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chess - Project Kata</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <h1>Chess</h1>
+        <a href="../../index.html" class="back-button"><i class="fas fa-arrow-left"></i> Back to Games</a>
+    </header>
+
+    <div class="game-container">
+        <div class="game-info">
+            <div class="status-container">
+                <h2>Status: <span id="status">White's turn</span></h2>
+                <h3>Turn: <span id="turn">White</span></h3>
+            </div>
+            <div class="captured-pieces">
+                <div class="white-captured">
+                    <h3>White Captured:</h3>
+                    <div id="white-captured-pieces"></div>
+                </div>
+                <div class="black-captured">
+                    <h3>Black Captured:</h3>
+                    <div id="black-captured-pieces"></div>
+                </div>
+            </div>
+            <div class="controls">
+                <h3>Controls:</h3>
+                <ul>
+                    <li><i class="fas fa-mouse-pointer"></i> Click to select and move pieces</li>
+                    <li><i class="fas fa-undo"></i> Undo: Revert last move</li>
+                </ul>
+            </div>
+            <button id="reset-button">New Game</button>
+            <button id="undo-button">Undo Move</button>
+        </div>
+        <div class="board-container">
+            <div id="chess-board"></div>
+        </div>
+    </div>
+
+    <div id="promotion-modal" class="modal">
+        <div class="modal-content">
+            <h2>Promote Pawn</h2>
+            <div class="promotion-options">
+                <div class="promotion-piece" data-piece="queen">♛</div>
+                <div class="promotion-piece" data-piece="rook">♜</div>
+                <div class="promotion-piece" data-piece="bishop">♝</div>
+                <div class="promotion-piece" data-piece="knight">♞</div>
+            </div>
+        </div>
+    </div>
+
+    <div id="game-over" class="modal">
+        <div class="modal-content">
+            <h2>Game Over</h2>
+            <p id="game-result">White wins by checkmate!</p>
+            <button id="play-again">Play Again</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Project Kata - Created for Portfolio</p>
+    </footer>
+
+    <script src="../../js/game-settings.js"></script>
+    <script src="chess.js"></script>
+</body>
+</html>
